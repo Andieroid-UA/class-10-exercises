@@ -1,0 +1,212 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+/*------MAIN--------------------------------------*/
+
+body, .jumbotron { padding: 30px;}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(61, 8, 97);
+    font-family: 'Indie Flower';
+    background-size: cover;
+}
+
+.label {
+    font-size: 15px;
+    color: #000000;
+    font-weight: 600;
+}
+.content {
+    font-size: 19px;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 5px;
+}
+.floater {
+    background: transparent;
+    transition: 0.3s cubic-bezier(0.175, 0.82, 85, 0.32, 1.4) all;
+    margin-bottom: 8px;
+    z-index: 11;
+}
+.floater input[type=text] {
+    padding: 30px 20px;
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
+    transition: 0.3s cubic-bezier(0.175, 0.82, 85, 0.32, 1.4) all;
+}
+.floater-bottom {
+    padding: 6px 10px 7px;
+    text-align: right;
+    border-top: 1px solid steelblue;
+}
+.floater-bottom button {
+    padding: 4px 8px;
+    font-size: 10px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.80);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 0.3s ease opacity;
+    z-index: 10;
+    pointer-events: none;
+}
+body.show-floater .floater {
+    transform: scale(1.1);
+}
+body.show-floater .floater input[type=text] {
+    padding: 50px 20px;
+    font-size: 18px;
+}
+body.show-floater .overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/*====BOOKMARKS=================*/
+.bookmark-list {
+    z-index: 9;
+    position: relative;
+}
+.bookmark {
+    display: flex;
+    background: transparent;
+    position: relative;
+    color: #999;
+    padding: 5px;
+    left: 50px;
+    transition: 0.3s ease all;
+    font-size: 16px;
+}
+.bookmark:hover {
+    color: #1CE;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 18px;
+}
+.bookmark:first-child{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.bookmark:last-child{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+}
+.bookmark .title {
+    display: flex;
+    margin: 18px 80px;
+    align-items: center;
+}
+
+/*---DELETE BUTTON--------------------*/
+.bookmark .glyphicon-remove {
+    position: absolute;
+    top: 8px;
+    right: 80px;
+    color: #676767;
+    font-size: 12px;
+    transition: 0.3s ease color;
+    cursor: pointer;
+}
+.bookmark:hover .glyphicon-remove {
+    color: #ff0000;
+}
+/*----NOTEBOOK PAPER---------------------------------------*/
+.paper {
+  position: absolute;
+  height: 570px;
+  width: 500px;
+  background: rgba(35, 0, 100, 0.9);
+  margin: -275px -225px;
+  left: 50%;
+  top: 50%;
+  box-shadow: 0px 0px 5px 0px #888;
+}
+.paper::before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  margin-top: 40px;
+  height: 93%;
+  width: 2px;
+  background: rgba(255,0,0,0.4);
+}
+.lines {
+  margin-top: 40px;
+  height: calc(100% - 40px);
+  width: 100%;
+  background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
+}
+/*----CHECKBOX---------------------------------------*/
+/* Customize the label (the container) */
+.container {
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 10px;
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  /* .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  } */
+
+  .container input:checked ~ .checkmark {
+    text-decoration: line-through;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  /* .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  } */
+  
